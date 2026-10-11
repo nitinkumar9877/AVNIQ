@@ -1,0 +1,17 @@
+@use "variables";
+
+@mixin content-width {
+  width: min(100% - 3rem, variables.$content-width);
+  margin-inline: auto;
+}
+
+@mixin focus-ring {
+  outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+@mixin surface-card {
+  border: 1px solid var(--line);
+  border-radius: variables.$radius-card;
+  background: var(--surface);
+}

@@ -1,0 +1,102 @@
+@use "../styles/variables";
+@use "../styles/reset";
+@use "../styles/typography";
+@use "../styles/animations";
+@use "../styles/mixins";
+
+:root {
+  color-scheme: light;
+  --page-bg: #fcfcfd;
+  --surface: #fff;
+  --ink: #141923;
+  --muted: #737b8a;
+  --soft-muted: #9ba2ae;
+  --line: #e9ebf0;
+  --accent: #526bff;
+  --accent-dark: #4058ec;
+  --accent-wash: #eff1ff;
+  --grid-dot: rgba(97, 107, 130, 0.17);
+  --shadow-soft: 0 20px 60px rgba(42, 55, 106, 0.08);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #10131b;
+  --surface: #191d28;
+  --ink: #f4f5fa;
+  --muted: #a6adbd;
+  --soft-muted: #767f91;
+  --line: #2b3040;
+  --accent: #8090ff;
+  --accent-dark: #6679ff;
+  --accent-wash: #242a49;
+  --grid-dot: rgba(167, 177, 205, 0.13);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 3px;
+}
+
+.site-shell {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: clip;
+  background-image: radial-gradient(var(--grid-dot) 0.8px, transparent 0.8px);
+  background-position: center 8px;
+  background-size: 22px 22px;
+}
+
+.site-main {
+  flex: 1;
+}
+
+.page-width {
+  @include mixins.content-width;
+}
+
+.section-space {
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+}
+
+@media (max-width: 600px) {
+  .page-width {
+    width: min(100% - 2.25rem, 80rem);
+  }
+}

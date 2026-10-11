@@ -1,0 +1,3 @@
+@function fluid-space($min, $max, $viewport: 80rem) {
+  @return clamp($min, calc($min + ($max - $min) * ((100vw - 20rem) / ($viewport - 20rem))), $max);
+}

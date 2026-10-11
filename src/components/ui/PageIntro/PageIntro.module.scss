@@ -1,0 +1,38 @@
+.intro {
+  width: min(100% - 3rem, 80rem);
+  margin-inline: auto;
+  padding-block: clamp(4.5rem, 9vw, 7rem) 3.25rem;
+  text-align: center;
+
+  h1 {
+    max-width: 15ch;
+    margin: 1rem auto 0;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.075em;
+    line-height: 1.04;
+  }
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 40rem;
+  margin: 1.1rem auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .intro {
+    width: calc(100% - 2.25rem);
+    padding-block: 4rem 2.5rem;
+  }
+}
